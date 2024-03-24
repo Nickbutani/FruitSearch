@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 10px;
+}
+
+
+
+body {
+  font-family: "Truculenta", sans-serif;
+}
+
+
+
+.head{
+  font-size: 3rem;
+   display: flex;
+   flex-wrap: wrap;
+   text-align: center;
+}
+.intro{
+  margin-bottom: 2rem;
+}
+.search-container {
+  background: linear-gradient(aquamarine, rgb(138, 213, 95));
+
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  width: 100%;
+  position:absolute;
+  top:0;
+  left: 0;
+}
+
+.search-container input,
+.search-container .suggestions {
+  
+  overflow: hidden;
+}
+
+.search-container input {
+  border-radius: 5px;
+  border: 0.5px solid black;
+  width: 15rem;
+  outline: none;
+  font-family: "Truculenta", sans-serif;
+}
+
+.search-container .suggestions {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 0;
+  
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: auto;
+  padding: 0;
+  background-color: whitesmoke;
+  width: 16rem; 
+}
+
+ul li {
+  cursor: pointer;
+  border-top: 0.5px solid black;
+  border-left: 0.5px solid black;
+  border-right: 0.5px solid black;
+}
+ul li:hover {
+  background-color: rgb(204, 200, 200);
+}
+
+
+.fruit-pic{
+  position: absolute;
+  top: 60%;
+  text-align: center;
+  font-size: 1.2rem;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pic-img{
+  border: 0.5px solid black;
+  border-radius: 5px;
+}
+
+.pic-img p{
+  border-top: 0.5px solid black;
+}
+
+.pics{
+  width: 200px;
+  height: 157px;
+}
+
+.pic-img i{
+  position: absolute;
+  top: 2%;
+  right:2%;
+  cursor: pointer;
+}
+
+.custom-shape-divider-bottom-1711160481 {
+  position: absolute;
+  bottom:40%;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1711160481 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 120px;
+}
+
+.custom-shape-divider-bottom-1711160481 .shape-fill {
+  fill: #FFFFFF;
+}

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fruit Autocomplete</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://kit.fontawesome.com/b15cd79f79.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <div class="search-container">
+      <div class="intro">
+        <hi class="head">Welcome to Fruit Search</hi>
+      </div>
+      <input
+        type="text"
+        name="fruit"
+        id="fruit"
+        placeholder="Search fruit 🍎"
+      />
+      <div id="suggestions" class="suggestions">
+        <ul></ul>
+      </div>
+    </div>
+    <div class="custom-shape-divider-bottom-1711160481">
+      <svg
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+          opacity=".25"
+          class="shape-fill"
+        ></path>
+        <path
+          d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+          opacity=".5"
+          class="shape-fill"
+        ></path>
+        <path
+          d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+          class="shape-fill"
+        ></path>
+      </svg>
+    </div>
+    <!-- Image display container -->
+    <div id="fruit-image"></div>
+
+    <!-- Image storage container -->
+    <div class="fruit-pic">
+      <div class="pic-img">
+        <img class="pics" src="Fruit-pic/Apple.png" />
+        <p class="pic-text">Apple</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img class="pics" src="Fruit-pic/Apricot.png" />
+        <p class="pic-text">Apricote</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img class="pics" src="Fruit-pic/Avocado.webp" />
+        <p class="pic-text">Avocado</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Banana.webp" alt="" class="pics" />
+        <p class="pic-text">Banana</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Bilberry.webp" alt="" class="pics" />
+        <p class="pic-text">Bilberry</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Blackberry.png" alt="" class="pics" />
+        <p class="pic-text">Blackberry</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Blackcurrant.png" alt="" class="pics" />
+        <p class="pic-text">Blackcurrent</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Boysenberry.png" alt="" class="pics" />
+        <p class="pic-text">Boysenbury</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Cantaloupe.png" alt="" class="pics" />
+        <p class="pic-text">Cantaloupe</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Cherry.webp" alt="" class="pics" />
+        <p class="pic-text">Cherry</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Clementine.webp" alt="" class="pics" />
+        <p class="pic-text">Clementine</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Coconut.webp" alt="" class="pics" />
+        <p class="pic-text">Coconut</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+
+      <div class="pic-img">
+        <img src="Fruit-pic/Cranberry.png" alt="" class="pics" />
+        <p class="pic-text">Cranberry</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Currant.png" alt="" class="pics" />
+        <p class="pic-text">Currant</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Custard apple.webp" alt="" class="pics" />
+        <p class="pic-text">Custard apple</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Damson.png" alt="" class="pics" />
+        <p class="pic-text">Damson</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Date.webp" alt="" class="pics" />
+        <p class="pic-text">Date</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Dragonfruit.webp" alt="" class="pics" />
+        <p class="pic-text">Dragonfruit</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Durian.webp" alt="" class="pics" />
+        <p class="pic-text">Durian</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Feijoa.webp" alt="" class="pics" />
+        <p class="pic-text">Feijoa</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Fig.webp" alt="" class="pics" />
+        <p class="pic-text">Fig</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Elderberry.webp" alt="" class="pics" />
+        <p class="pic-text">Elderberry</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Gooseberry.png" alt="" class="pics" />
+        <p class="pic-text">Gooseberry</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Grape.png" alt="" class="pics" />
+        <p class="pic-text">Grape</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Grapefruit.png" alt="" class="pics" />
+        <p class="pic-text">Grapefruit</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Guava.png" alt="" class="pics" />
+        <p class="pic-text">Guava</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Honeyberry.png" alt="" class="pics" />
+        <p class="pic-text">Honeyberry</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Honeydew.png" alt="" class="pics" />
+        <p class="pic-text">Honeydew</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Huckleberry.png" alt="" class="pics" />
+        <p class="pic-text">Huckleberry</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Jabuticaba.png" alt="" class="pics" />
+        <p class="pic-text">Jabuticaba</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Jackfruit.webp" alt="" class="pics" />
+        <p class="pic-text">Jackfruit</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+
+      <div class="pic-img">
+        <img src="Fruit-pic/Jambul.png" alt="" class="pics" />
+        <p class="pic-text">Jambul</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Juniper.webp" alt="" class="pics" />
+        <p class="pic-text">Juniper</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Kiwifruit.png" alt="" class="pics" />
+        <p class="pic-text">Kiwifruit</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Kumquat.png" alt="" class="pics" />
+        <p class="pic-text">Kumquat</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Lemon.png" alt="" class="pics" />
+        <p class="pic-text">Lemon</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Lime.png" alt="" class="pics" />
+        <p class="pic-text">Lime</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Longan.png" alt="" class="pics" />
+        <p class="pic-text">Longan</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Loquat.png" alt="" class="pics" />
+        <p class="pic-text">Loquat</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Lychee.webp" alt="" class="pics" />
+        <p class="pic-text">Lychee</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Mandarine.webp" alt="" class="pics" />
+        <p class="pic-text">Mandarine</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Mango.png" alt="" class="pics" />
+        <p class="pic-text">Mango</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Mangosteen.png" alt="" class="pics" />
+        <p class="pic-text">Mangosteen</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+
+      <div class="pic-img">
+        <img src="Fruit-pic/Marionberry.jpeg" alt="" class="pics" />
+        <p class="pic-text">Marionberry</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Melon.png" alt="" class="pics" />
+        <p class="pic-text">Melon</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Miracle fruit.jpeg" alt="" class="pics" />
+        <p class="pic-text">Miracle fruit</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Mulberry.webp" alt="" class="pics" />
+        <p class="pic-text">Mulberry</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Nance.jpeg" alt="" class="pics" />
+        <p class="pic-text">Nance</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Nectarine.webp" alt="" class="pics" />
+        <p class="pic-text">Nectarine</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Olive.png" alt="" class="pics" />
+        <p class="pic-text">Olive</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Orange.png" alt="" class="pics" />
+        <p class="pic-text">Orange</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Papaya.png" alt="" class="pics" />
+        <p class="pic-text">Papaya</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Passionfruit.webp" alt="" class="pics" />
+        <p class="pic-text">Passionfruit</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Peach.png" alt="" class="pics" />
+        <p class="pic-text">Peach</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Pear.webp" alt="" class="pics" />
+        <p class="pic-text">Pear</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Persimmon.png" alt="" class="pics" />
+        <p class="pic-text">Persimmon</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Pineapple.webp" alt="" class="pics" />
+        <p class="pic-text">Pineapple</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Plantain.png" alt="" class="pics" />
+        <p class="pic-text">Plantain</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Plum.png" alt="" class="pics" />
+        <p class="pic-text">Plum</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+
+      <div class="pic-img">
+        <img src="Fruit-pic/Pomegranate.webp" alt="" class="pics" />
+        <p class="pic-text">Pomegranate</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Pomelo.png" alt="" class="pics" />
+        <p class="pic-text">Pomelo</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Quince.png" alt="" class="pics" />
+        <p class="pic-text">Quince</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Raisin.png" alt="" class="pics" />
+        <p class="pic-text">Raisin</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Rambutan.png" alt="" class="pics" />
+        <p class="pic-text">Rambutan</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Raspberry.webp" alt="" class="pics" />
+        <p class="pic-text">Raspberry</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Redcurrant.png" alt="" class="pics" />
+        <p class="pic-text">Redcurrant</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+
+      <div class="pic-img">
+        <img src="Fruit-pic/Salak.webp" alt="" class="pics" />
+        <p class="pic-text">Salak</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Salmonberry.jpeg" alt="" class="pics" />
+        <p class="pic-text">Salmonberry</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Satsuma.png" alt="" class="pics" />
+        <p class="pic-text">Satsuma</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Soursop.png" alt="" class="pics" />
+        <p class="pic-text">Soursop</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Star fruit.png" alt="" class="pics" />
+        <p class="pic-text">Star fruit</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Strawberry.png" alt="" class="pics" />
+        <p class="pic-text">Strawberry</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Tamarillo.png" alt="" class="pics" />
+        <p class="pic-text">Tamarillo</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Tamarind.png" alt="" class="pics" />
+        <p class="pic-text">Tamarind</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Tangerine.png" alt="" class="pics" />
+        <p class="pic-text">Tangerine</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Watermelon.png" alt="" class="pics" />
+        <p class="pic-text">Watermelon</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="pic-img">
+        <img src="Fruit-pic/Yuzu.png" alt="" class="pics" />
+        <p class="pic-text">Yuzu</p>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
